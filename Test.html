@@ -1,47 +1,90 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <meta charset="UTF-8">
 
-<title>ถึงน้องบ่าวว</title>
+<title>Something for you</title>
 
 <style>
 
 body{
 
-background: linear-gradient(pink,#ffccd5);
-text-align: center;
+background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
 font-family: Arial;
-margin-top: 150px;
 
 }
 
 .box{
 
 background: white;
-width: 400px;
-margin: auto;
-padding: 30px;
-border-radius: 15px;
-box-shadow: 0px 0px 20px gray;
+width: 420px;
+padding: 40px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+text-align: center;
+
+animation: fade 1.5s;
+
+}
+
+@keyframes fade{
+
+from{opacity:0; transform: translateY(20px);}
+to{opacity:1;}
+
+}
+
+h1{
+
+color: #ff4d6d;
+
+}
+
+p{
+
+color: #555;
+font-size: 18px;
 
 }
 
 .button{
 
+display: inline-block;
+margin-top: 20px;
 background: #ff4d6d;
 color: white;
-padding: 12px;
+padding: 12px 25px;
+border-radius: 30px;
 text-decoration: none;
-border-radius: 10px;
+transition: 0.3s;
 
 }
 
 .button:hover{
 
 background: #ff1e4d;
+transform: scale(1.05);
+
+}
+
+.heart{
+
+font-size: 30px;
+color: red;
+animation: beat 1s infinite;
+
+}
+
+@keyframes beat{
+
+0%{transform: scale(1);}
+50%{transform: scale(1.2);}
+100%{transform: scale(1);}
 
 }
 
@@ -53,21 +96,31 @@ background: #ff1e4d;
 
 <div class="box">
 
-<h2>มีอะไรจะบอกน้องจูน 😊</h2>
+<h1>ถึงจูน 😊</h1>
 
 <p>
-ตั้งแต่ได้คุยกับ๗ูน<br>
-เรารู้สึกดีทุกวันเลย
-</p>
-<p>
-ถ้าเธออ่านถึงตรงนี้<br>
-แปลว่าจูนน่ารักมาก
+ตั้งแต่วันแรกที่ได้คุยกับเธอ<br>
+มันทำให้วันธรรมดาของเราอยากนอน มากกกก
 </p>
 
+<p>
+เราไม่รู้ว่าอนาคตจะเป็นยังไง<br>
+แต่ตอนนี้เรารู้ว่า...
+</p>
+
+<h2 style="color:#ff4d6d;">
+เราอยากนอน
+</h2>
+
+<div class="heart">
+❤️
+</div>
+
+<a class="button">
+ขอบคุณที่เข้ามาในชีวิตเรา
+</a>
 
 </div>
 
 </body>
-
 </html>
-
