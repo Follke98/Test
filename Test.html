@@ -2,43 +2,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>มีอะไรจะบอก</title>
+<title>เว็บง่ายๆ</title>
 
 <style>
-
 body{
-background: linear-gradient(to right, pink, #ffb6c1);
-text-align: center;
-font-family: Arial;
-margin-top: 150px;
+    background: #f0f0f0;
+    text-align: center;
+    font-family: Arial;
 }
 
 .box{
-background: white;
-width: 350px;
-margin: auto;
-padding: 30px;
-border-radius: 15px;
-box-shadow: 0px 0px 15px gray;
+    background: white;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
 }
 
 button{
-
-background: #ff4d6d;
-color: white;
-border: none;
-padding: 12px;
-border-radius: 8px;
-font-size: 16px;
-
+    background: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
 }
-
-button:hover{
-
-background: #ff1e4d;
-
-}
-
 </style>
 
 </head>
@@ -47,29 +35,32 @@ background: #ff1e4d;
 
 <div class="box">
 
-<h2>เรามีอะไรจะบอก 😊</h2>
+<h2>ทดสอบเว็บง่ายๆ</h2>
 
-<p>กดปุ่มนี้ก่อน</p>
+<input type="text" id="name" placeholder="ใส่ชื่อ">
 
-<button onclick="showMessage()">
-กดตรงนี้
+<br><br>
+
+<button onclick="showText()">
+กดปุ่ม
 </button>
 
-<p id="text"></p>
+<p id="result"></p>
 
 </div>
 
 <script>
 
-function showMessage(){
+function showText(){
 
-document.getElementById("text").innerHTML =
-"เราชอบคุยกับเธอนะ เธอน่ารักดี 😊";
+var name = document.getElementById("name").value;
+
+document.getElementById("result").innerHTML =
+"สวัสดี " + name;
 
 }
 
 </script>
 
 </body>
-
 </html>
