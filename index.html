@@ -1,133 +1,258 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For You</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial;
+}
+
 body{
 
-background: linear-gradient(270deg,#ff9a9e,#fad0c4,#ffd1ff);
-background-size: 600% 600%;
-animation: bgmove 10s infinite;
+height:100vh;
 
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: Arial;
+background: linear-gradient(135deg,#667eea,#764ba2);
 
-}
+display:flex;
+justify-content:center;
+align-items:center;
 
-@keyframes bgmove{
-
-0%{background-position:0%;}
-50%{background-position:100%;}
-100%{background-position:0%;}
+transition:.5s;
 
 }
 
-.box{
+.dark{
 
-background: white;
-width: 420px;
-padding: 40px;
-border-radius: 20px;
-box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-text-align: center;
-
-animation: float 2s ease;
+background: linear-gradient(135deg,#141e30,#243b55);
 
 }
 
-@keyframes float{
+.card{
+
+background:white;
+
+width:460px;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 20px 60px rgba(0,0,0,0.3);
+
+text-align:center;
+
+animation:fade 1s;
+
+}
+
+.dark .card{
+
+background:#1e1e1e;
+color:white;
+
+}
+
+@keyframes fade{
 
 from{
 
 opacity:0;
-transform: translateY(50px);
-
-}
-
-to{
-
-opacity:1;
-transform: translateY(0);
+transform:translateY(40px);
 
 }
 
 }
 
-h1{
+.title{
 
-color: #ff4d6d;
-animation: textfade 2s;
+font-size:28px;
 
-}
-
-@keyframes textfade{
-
-from{opacity:0;}
-to{opacity:1;}
+margin-bottom:15px;
 
 }
 
-p{
+.text{
 
-color: #555;
-font-size: 18px;
-animation: textfade 3s;
+font-size:18px;
 
-}
+color:gray;
 
-.button{
+margin-bottom:25px;
 
-display: inline-block;
-margin-top: 25px;
-background: #ff4d6d;
-color: white;
-padding: 12px 30px;
-border-radius: 30px;
-text-decoration: none;
-
-transition: 0.3s;
+line-height:28px;
 
 }
 
-.button:hover{
+.dark .text{
 
-background: #ff1e4d;
-transform: scale(1.1);
+color:#ccc;
+
+}
+
+button{
+
+border:none;
+
+padding:12px 25px;
+
+margin:10px;
+
+border-radius:30px;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.yes{
+
+background:#ff4d6d;
+color:white;
+
+}
+
+.no{
+
+background:#ddd;
+
+position:relative;
+
+}
+
+.yes:hover{
+
+transform:scale(1.1);
+
+background:#ff1e4d;
+
+}
+
+.no:hover{
+
+background:#bbb;
 
 }
 
 .heart{
 
-font-size: 35px;
-color: red;
+font-size:40px;
 
-animation: beat 1s infinite;
+animation:beat 1s infinite;
 
 }
 
 @keyframes beat{
 
-0%{transform: scale(1);}
-50%{transform: scale(1.3);}
-100%{transform: scale(1);}
+0%{transform:scale(1);}
+50%{transform:scale(1.3);}
+100%{transform:scale(1);}
 
 }
 
-.small{
+.toggle{
 
-margin-top:15px;
-color:gray;
-font-size:14px;
+position:absolute;
 
-animation: textfade 4s;
+top:20px;
+
+right:20px;
+
+background:black;
+
+color:white;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+}
+
+.result{
+
+margin-top:20px;
+
+font-size:20px;
+
+color:#ff4d6d;
+
+font-weight:bold;
+
+}
+
+.loading{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+background:black;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:30px;
+
+z-index:5;
+
+animation:hide 2s forwards;
+
+}
+
+@keyframes hide{
+
+80%{opacity:1;}
+100%{
+
+opacity:0;
+visibility:hidden;
+
+}
+
+}
+
+.fall{
+
+position:fixed;
+
+color:red;
+
+animation:fall 4s linear infinite;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-100px);
+
+}
+
+100%{
+
+transform:translateY(100vh);
+
+}
 
 }
 
@@ -137,37 +262,125 @@ animation: textfade 4s;
 
 <body>
 
-<div class="box">
+<div class="loading">
+Loading...
+</div>
 
-<h1>ถึงกันนนน 😊</h1>
+<button class="toggle" onclick="mode()">
+Dark mode
+</button>
 
-<p>
+<div class="card">
+
+<div class="title">
+เรามีอะไรจะบอก 😊
+</div>
+
+<div class="text">
+
 ตั้งแต่ได้คุยกับเธอ<br>
-วันธรรมดาก็กลายเป็นวันดีๆ
-</p>
+เรานอนนนบ่อยขึ้นมากเลย
 
-<p>
-เราอาจไม่ได้เก่งเรื่องพูด<br>
-แต่เราอยากบอกว่า...
-</p>
+<br><br>
 
-<h2 style="color:#ff4d6d;">
-ตั้งใจๆ
-</h2>
+เราอาจไม่ใช่คนที่ดีที่สุด<br>
+เเต่เรากินเก่งงงง
+</div>
 
 <div class="heart">
 ❤️
 </div>
 
-<div class="small">
-นอนบ่อยๆ
+<div style="font-size:22px;">
+ให้โอกาสเรานอนนนได้ไหม?
 </div>
 
-<a class="button">
-อ่านข้อความนี้แล้วห้ามยิ้มนะ 😆
-</a>
+<button class="yes" onclick="yes()">
+ได้
+</button>
+
+<button class="no" id="no">
+ไม่ได้
+</button>
+
+<div class="result" id="result">
 
 </div>
+
+</div>
+
+<script>
+
+function mode(){
+
+document.body.classList.toggle("dark");
+
+}
+
+function yes(){
+
+document.getElementById("result").innerHTML=
+"เย้ 🎉 เราจะไม่ทำให้เธอเสียใจแน่นอน";
+
+confetti();
+
+hearts();
+
+}
+
+var no=document.getElementById("no");
+
+no.addEventListener("mouseover",function(){
+
+no.style.position="absolute";
+
+no.style.left=Math.random()*80+"%";
+
+no.style.top=Math.random()*80+"%";
+
+});
+
+function hearts(){
+
+for(i=0;i<20;i++){
+
+var h=document.createElement("div");
+
+h.innerHTML="❤️";
+
+h.className="fall";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDuration=
+(2+Math.random()*3)+"s";
+
+document.body.appendChild(h);
+
+}
+
+}
+
+function confetti(){
+
+for(i=0;i<30;i++){
+
+var c=document.createElement("div");
+
+c.className="fall";
+
+c.innerHTML="✨";
+
+c.style.left=Math.random()*100+"%";
+
+document.body.appendChild(c);
+
+}
+
+}
+
+</script>
 
 </body>
+
 </html>
