@@ -1,44 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>ระบบลางาน</title>
+<meta charset="UTF-8">
+<title>มีอะไรจะบอก</title>
+
+<style>
+
+body{
+background: linear-gradient(to right, pink, #ffb6c1);
+text-align: center;
+font-family: Arial;
+margin-top: 150px;
+}
+
+.box{
+background: white;
+width: 350px;
+margin: auto;
+padding: 30px;
+border-radius: 15px;
+box-shadow: 0px 0px 15px gray;
+}
+
+button{
+
+background: #ff4d6d;
+color: white;
+border: none;
+padding: 12px;
+border-radius: 8px;
+font-size: 16px;
+
+}
+
+button:hover{
+
+background: #ff1e4d;
+
+}
+
+</style>
+
 </head>
+
 <body>
-  <h2>แบบฟอร์มลางาน</h2>
 
-  <input id="name" placeholder="ชื่อ"><br><br>
-  <input id="department" placeholder="แผนก"><br><br>
+<div class="box">
 
-  <select id="leaveType">
-    <option>ลาป่วย</option>
-    <option>ลากิจ</option>
-    <option>ลาพักร้อน</option>
-  </select><br><br>
+<h2>เรามีอะไรจะบอก 😊</h2>
 
-  <input type="date" id="startDate">
-  <input type="date" id="endDate"><br><br>
+<p>กดปุ่มนี้ก่อน</p>
 
-  <textarea id="reason" placeholder="เหตุผล"></textarea><br><br>
+<button onclick="showMessage()">
+กดตรงนี้
+</button>
 
-  <button onclick="submitLeave()">ส่งคำขอลา</button>
+<p id="text"></p>
 
-  <script>
-    function submitLeave() {
-      fetch("https://script.google.com/macros/s/AKfycbzF_XVToREej-gEcU_UY2Xg2R5AgaKOr4y5i86rEv9GPpO2j-kOn207hRfYyvGUn-Q-/exec", {
-        method: "POST",
-        body: JSON.stringify({
-          name: document.getElementById("name").value,
-          department: document.getElementById("department").value,
-          leaveType: document.getElementById("leaveType").value,
-          startDate: document.getElementById("startDate").value,
-          endDate: document.getElementById("endDate").value,
-          reason: document.getElementById("reason").value
-        })
-      })
-      .then(res => res.json())
-      .then(() => alert("ส่งคำขอลาสำเร็จ"));
-    }
-  </script>
+</div>
+
+<script>
+
+function showMessage(){
+
+document.getElementById("text").innerHTML =
+"เราชอบคุยกับเธอนะ เธอน่ารักดี 😊";
+
+}
+
+</script>
+
 </body>
+
 </html>
